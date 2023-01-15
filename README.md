@@ -1,70 +1,70 @@
 # Teams
-Second-year student project, a server able to manage a collaborative communication application like the well known Microsoft Teams ®
+A second-year student project, a server that manages a collaborative communication application similar to Microsoft Teams®.
 
 ## Features
 
-A collaborative communication application is a service able to manage severall communication teams, where discussion are organised like following:
-* threads (initial post and additional comments) in a specific channel
-* discussion (personnal messages)
+The application is a service that manages multiple communication teams, where discussions are organized as follows:
+* threads (initial post and additional comments) within a specific channel
+* Personal discussions
 
-Severals actions available:
-* Creating/Joining/Leaving a team
-* Creating a user
-* Creating a channel in a team
-* Creating a thread in a channel
-* Creating a comment in a thread
-* Saving & restoring users, teams, channels, threads & associated comments
-* Personnal discussion (from a user to an other)
-* Saving & restoring personnal discussion
+The application allows for the following actions:
+* Creating, joining, and leaving teams
+* Creating users
+* Creating channels within a team
+* Creating threads within a channel
+* Creating comments within a thread
+* Saving and restoring users, teams, channels, threads, and associated comments
+* Personal discussions (between users)
+* Saving and restoring personal discussions
 
 ### Client
 
-Client will handle the following command from the standard input :
-* /help : show help
-* /login [“user_name”] : set the user_name used by client
-* /logout : disconnect the client from the server
-* /users : get the list of all users that exist on the domain
-* /user [“user_uuid”] : get information about a user
-* /send [“user_uuid”] [“message_body”] : send a message to a user
-* /messages [“user_uuid”] : list all messages exchange with an user
-* /subscribe [“team_uuid”] : subscribe to the event of a team and its sub directories (enable reception of all events from a team)
-* /subscribed ?[“team_uuid”] : list all subscribed teams or list all users subscribed to a team
-* /unsubscribe [“team_uuid”] : unsubscribe from a team
-* /use ?[“team_uuid”] ?[“channel_uuid”] ?[“thread_uuid”] : use specify a context team/channel/thread
-* /create : based on what is being used create the sub resource
-* /list : based on what is being used list all the sub resources
-* /info : based on what is being used list the current
+The client will handle the following commands from standard input:
+* __/help :__ show help
+* __/login [“user_name”] :__ set the user_name used by client
+* __/logout :__ disconnect the client from the server
+* __/users :__ get the list of all users that exist on the domain
+* __/user [“user_uuid”] :__ get information about a user
+* __/send [“user_uuid”] [“message_body”] :__ send a message to a user
+* __/messages [“user_uuid”] :__ list all messages exchange with an user
+* __/subscribe [“team_uuid”] :__ subscribe to the event of a team and its sub directories (enable reception of all events from a team)
+* __/subscribed ?[“team_uuid”] :__ list all subscribed teams or list all users subscribed to a team
+* __/unsubscribe [“team_uuid”] :__ unsubscribe from a team
+* __/use ?[“team_uuid”] ?[“channel_uuid”] ?[“thread_uuid”] :__ specify a context team/channel/thread
+* __/create :__ create a subresource based on the current context
+* __/list :__ list all subresources based on the current context
+* __/info :__ display information about the current context
 
 #### /CREATE
 
 When the context is not defined (/use):
-* /create [“team_name”] [“team_description”] : create a new team
+* __/create [“team_name”] [“team_description”] :__ create a new team
 When team_uuid is defined (/use “team_uuid”):
-* /create [“channel_name”] [“channel_description”] : create a new channel
+* __/create [“channel_name”] [“channel_description”] :__ create a new channel
 When team_uuid and channel_uuid are defined (/use “team_uuid” “channel_uuid”):
-* /create [“thread_title”] [“thread_message”] : create a new thread
+* __/create [“thread_title”] [“thread_message”] :__ create a new thread
 When team_uuid, channel_uuid and thread_uuid are defined (/use “team_uuid” “channel_uuid” “thread_uuid”):
-* /create [“comment_body”] : create a new reply
+* __/create [“comment_body”] :__ create a new reply
 
 #### /LIST
 When the context is not defined (/use):
-* /list : list all existing teams
+* __/list :__ list all existing teams
 When team_uuid is defined (/use “team_uuid”):
-* /list : list all existing channels
+* __/list :__ list all existing channels
 When team_uuid and channel_uuid are defined (/use “team_uuid” “channel_uuid”):
-* /list : list all existing threads
+* __/list :__ list all existing threads
 When team_uuid, channel_uuid and thread_uuid are defined (/use “team_uuid” “channel_uuid” “thread_uuid”):
-* /list : list all existing replies
+* __/list :__ list all existing replies
 
 #### /INFO
 When the context is not defined (/use):
-* /info : display currently logged user infos
+* __/info :__ display currently logged user infos
 When team_uuid is defined (/use “team_uuid”):
-* /info : display currently selected team infos
+* __/info :__ display currently selected team infos
 When team_uuid and channel_uuid are defined (/use “team_uuid” “channel_uuid”):
-* /info : display currently selected channel infos
+* __/info :__ display currently selected channel infos
 When team_uuid, channel_uuid and thread_uuid are defined (/use “team_uuid” “channel_uuid” “thread_uuid”):
-* /info : display currently selected thread infos
+* __/info :__ display currently selected thread infos
 
 #### GENERAL INFORMATIONS
 Please note that all arguments of the existing commands should be quoted with double quotes.
@@ -75,7 +75,7 @@ as follow:
 * MAX_DESCRIPTION_LENGTH 255
 * MAX_BODY_LENGTH 512
 
-## Build with linux (ubuntu)
+## Build on Linux (Ubuntu)
 
 ### 1. Set environement variable (for each terminal):
 
